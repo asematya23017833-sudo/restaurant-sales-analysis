@@ -1,0 +1,7 @@
+-- DAX measures for the Power BI version
+Revenue = SUMX ( Sales, Sales[transaction_qty] * Sales[unit_price] )
+Units Sold = SUM ( Sales[transaction_qty] )
+Transactions = COUNTROWS ( Sales )
+Avg Transaction Value = DIVIDE ( [Revenue], [Transactions] )
+Revenue vs Prev Month = [Revenue] - CALCULATE ( [Revenue], PREVIOUSMONTH ( 'Calendar'[Date] ) )
+Peak Hour Revenue = MAXX ( VALUES ( 'Calendar'[Hour] ), [Revenue] )

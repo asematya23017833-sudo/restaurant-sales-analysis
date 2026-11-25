@@ -1,0 +1,50 @@
+{
+  "kpis": {
+    "transactions": 149116,
+    "total_revenue_usd": 698812.33,
+    "locations": 3,
+    "first_date": "2023-01-01 00:00:00",
+    "last_date": "2023-06-30 00:00:00"
+  },
+  "top_categories": [
+    {
+      "product_category": "Coffee",
+      "revenue": 269952.0,
+      "units": 89250.0
+    },
+    {
+      "product_category": "Tea",
+      "revenue": 196406.0,
+      "units": 69737.0
+    },
+    {
+      "product_category": "Bakery",
+      "revenue": 82316.0,
+      "units": 23214.0
+    },
+    {
+      "product_category": "Drinking Chocolate",
+      "revenue": 72416.0,
+      "units": 17457.0
+    },
+    {
+      "product_category": "Coffee beans",
+      "revenue": 40085.0,
+      "units": 1828.0
+    }
+  ],
+  "by_location": [
+    {
+      "store_location": "Hell's Kitchen",
+      "revenue": 236511.0
+    },
+    {
+      "store_location": "Astoria",
+      "revenue": 232244.0
+    },
+    {
+      "store_location": "Lower Manhattan",
+      "revenue": 230057.0
+    }
+  ]
+}
