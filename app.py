@@ -14,7 +14,7 @@ import streamlit as st
 
 st.set_page_config(page_title="Coffee Shop Sales Analysis", layout="wide")
 st.title("Coffee Shop Sales Analysis")
-st.caption("Maven Analytics Coffee Shop Sales, public dataset - 149,116 transactions, 3 NYC locations, H1 2023. Rebuild Nov 2026. US-based sample dataset; amounts shown as USD, the data itself states no currency.")
+st.caption("Maven Analytics Coffee Shop Sales, public dataset - 149,116 transactions, 3 NYC locations, H1 2023. Rebuild Nov 2026. Amounts shown in units; the data states no currency.")
 
 @st.cache_data
 def load():
@@ -30,7 +30,7 @@ def load():
 kpi, cat, loc, mon, hr = load()
 c1, c2 = st.columns(2)
 c1.metric("Transactions", f"{int(kpi['n'][0]):,}")
-c2.metric("Revenue", f"USD {kpi['rev'][0]:,.0f}")
+c2.metric("Revenue (units)", f"{kpi['rev'][0]:,.0f}")
 st.subheader("Revenue by product category")
 st.bar_chart(cat.set_index("c"))
 left, right = st.columns(2)

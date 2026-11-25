@@ -20,7 +20,7 @@ CSV = f"{ROOT}/data/coffee_shop_sales.csv"
 
 kpis = con.execute(f"""
 SELECT COUNT(*) AS transactions,
-       ROUND(SUM(transaction_qty * unit_price), 2) AS total_revenue_usd,
+       ROUND(SUM(transaction_qty * unit_price), 2) AS total_revenue,
        COUNT(DISTINCT store_location) AS locations,
        MIN(transaction_date) AS first_date, MAX(transaction_date) AS last_date
 FROM read_csv_auto('{CSV}')
@@ -50,7 +50,7 @@ FROM read_csv_auto('{CSV}') GROUP BY 1 ORDER BY 1
 plt.style.use("seaborn-v0_8-whitegrid")
 fig, ax = plt.subplots(figsize=(10, 4))
 ax.barh(by_cat["product_category"][::-1], by_cat["revenue"][::-1])
-ax.set_title("Revenue by product category"); ax.set_xlabel("USD")
+ax.set_title("Revenue by product category"); ax.set_xlabel("units")
 fig.tight_layout(); fig.savefig(ROOT / "charts" / "revenue_by_category.png", dpi=120); plt.close(fig)
 
 fig, axes = plt.subplots(1, 2, figsize=(11, 4))
@@ -61,7 +61,7 @@ fig.tight_layout(); fig.savefig(ROOT / "charts" / "location_month.png", dpi=120)
 
 fig, ax = plt.subplots(figsize=(10, 4))
 ax.bar(by_hour["hour"].astype(str), by_hour["revenue"])
-ax.set_title("Revenue by hour of day (customer daypart behavior)"); ax.set_xlabel("Hour"); ax.set_ylabel("USD")
+ax.set_title("Revenue by hour of day (customer daypart behavior)"); ax.set_xlabel("Hour"); ax.set_ylabel("units")
 fig.tight_layout(); fig.savefig(ROOT / "charts" / "revenue_by_hour.png", dpi=120); plt.close(fig)
 
 summary = {"kpis": kpis.to_dict("records")[0],
