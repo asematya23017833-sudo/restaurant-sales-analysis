@@ -7,7 +7,7 @@ Sales analysis dashboard by product category, store location and time-of-day cus
 > **Power BI note:** this repo ships the real dataset, the DAX measures, the Power Query steps, and a runnable verified companion analysis (charts in `charts/`). A native `.pbix` file cannot be authored on Linux; open the dataset in Power BI Desktop and apply `dax/measures.dax` + `powerquery/steps.pq` to reproduce the dashboard in minutes.
 
 ## Dataset
-Maven Analytics Coffee Shop Sales (public): `data/coffee_shop_sales.csv`, 149,116 transactions at 3 NYC locations, 2023-01-01 to 2023-06-30. Substitute dataset; the original restaurant sales file was lost.
+Maven Analytics Coffee Shop Sales (public): `data/coffee_shop_sales.csv`, 149,116 transactions at 3 NYC locations, 2023-01-01 to 2023-06-30. Amounts are shown as USD: the sample dataset is US-based (3 NYC stores) but states no currency explicitly. Substitute dataset; the original restaurant sales file was lost.
 
 ## Measured results (this rebuild)
 - Total revenue: **USD 698,812**
